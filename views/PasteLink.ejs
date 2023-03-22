@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.4.2/zxcvbn.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css');
+
+        .sizeRef {
+            max-width: 1000px;
+        }
+    </style>
+
+</head>
+<!-- component -->
+<body class="antialiased bg-slate-200">
+    <div class="max-w-lg mx-auto my-10 bg-white p-8 rounded-xl shadow shadow-slate-300">
+        <h1 class="text-4xl font-medium">Forgot password Reset</h1>
+        <p class="text-slate-500">Please Paste the Link send to you remail</p>
+
+        <form action="/password/reset/:token" method="POST" class="my-10">
+    
+                <div class="flex -mx-3">
+                    <div class="w-full px-3 mb-5">
+                        <label for="" class="text-xs font-semibold px-1">Password</label>
+                        <div class="flex">
+                            <div
+                                class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                                <i class="mdi mdi-lock-outline text-gray-400 text-lg"></i></div>
+                            <input type="text" name="password"
+                                class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                                placeholder="************">
+                        </div>
+                    </div>
+                </div>
+                <div class="flex -mx-3">
+                    <div class="w-full px-3 mb-12">
+                        <label for="" class="text-xs font-semibold px-1">Confirm Password</label>
+                        <div class="flex">
+                            <div
+                                class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                                <i class="mdi mdi-lock-outline text-gray-400 text-lg"></i></div>
+                            <input type="text" name="confirmPassword"
+                                class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                                placeholder="************">
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="w-full py-3 font-medium text-white bg-indigo-600 hover:bg-indigo-500 rounded-lg border-indigo-500 hover:shadow inline-flex space-x-2 items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z" />
+                      </svg>
+                      
+                      <span>Submit Key</span>
+                </button>
+               
+            </div>
+        </form>
+    </div>
+    
+</body>
+
+
+</html>
