@@ -3,9 +3,15 @@ const router = express.Router()
 
 const {home,homedummy} = require("../controller/HomeController.js")
 
-router.route('/Raftar').get(home)
-router.route('/home').get(homedummy)
+const { fetch } = require('undici')
 
+// Home route
+router.route("/").get(async (_, res) => {
+	const data = await fetch('https://dummyjson.com/products')
+	const data2 = await data.json()
+   const pizza = data2.products
+	  res.render("Home",{pizza});
+  })
 
 
 module.exports = router

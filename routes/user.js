@@ -48,5 +48,68 @@ router.route("/update/user").post(UserLoggedIn,updateUserDetails)
 
 
 
+// All get routes
+
+
+// login get route
+router.route("/login").get((req, res) => {
+	res.render("login",{
+		isLogin:false,
+		message:"No Need"
+	});
+})
+
+// forgot password token 
+router.route("/password/reset/:token").get((_, res) => {
+	res.render("PasteLink");
+})
+
+// get route for forgotten password
+router.route("/forgotpassword").get((_, res) => {
+	res.render("ForgottenPassword");
+
+})
+
+// Get route for login Updating details of user
+router.route("/update/user").get((_, res) => {
+	res.render("UpdateUser");
+
+
+})
+
+
+// overview of prodcut
+router.route("/product/details").get((_, res) => {
+	res.render("overview");
+})
+
+
+// change password route
+router.route("/password/update").get((_, res) => {
+	res.render("ChangePassword");
+
+})
+
+// Error page Route
+router.route("*").get((_, res) => {
+	res.render("Error");
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 module.exports = router
