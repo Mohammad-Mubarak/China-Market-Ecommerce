@@ -207,7 +207,7 @@ exports.Resetpassword = async (req, res) => {
 				httpOnly: true,
 			};
 			const Token =existinguser.getJwtToken();
-			return res.status(200).cookie("token", Token, option).redirect("/userhome")
+			return res.status(200).cookie("token", Token, option).redirect("/")
 	
 
 	} catch (error) {
