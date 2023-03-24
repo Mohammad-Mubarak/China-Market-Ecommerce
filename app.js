@@ -27,12 +27,16 @@ require("./config/connection");
 
 //cookie and fileupload middleware
 app.use(cookieParser());
+
 app.use(
 	ExpressFileUpload({
+		debug: true,
 		useTempFiles: true,
-		tempFileDir: "/images/",
+		tempFileDir:path.join(__dirname,"./images") 
 	})
 );
+
+
 
 app.set("view engine", "ejs");
 
