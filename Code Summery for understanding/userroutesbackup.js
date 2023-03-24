@@ -1,3 +1,7 @@
+
+/*
+
+
 var PrettyError = require('pretty-error');
 var pe = new PrettyError().start();
 
@@ -18,8 +22,6 @@ const {
 	updateUserDetails,
 	GetAllusers,
 	SingleUser,
-	adminDeleteUser,
-	adminUpdateSingleUser,
 	ManagerOnly
 } = require("../controller/userController")
 
@@ -28,7 +30,8 @@ const {UserLoggedIn} = require('../middlewares/UserLoggedIn')
 const {isAdmin} = require('../middlewares/isAdmin')
 
 // get and post route for signup (//?)
-router.route("/register").get(sign).post(signup)
+router.route("/register").get(sign)
+router.route("/register").post(signup)
 
 //login logout route  (//?)
 router.route("/login").post(login)
@@ -56,12 +59,8 @@ router.route("/admin/user").get(UserLoggedIn, isAdmin("admin") ,GetAllusers)
 
 
 // get only one user admin (//?)
-// Admin can update Single User ALso (//?)
-// user can delete user also (//?)
-router.route("/admin/user/:id")
-.get(UserLoggedIn, isAdmin("admin") ,SingleUser)
-.put(UserLoggedIn, isAdmin("admin") ,adminUpdateSingleUser)
-.delete(UserLoggedIn, isAdmin("admin") ,adminDeleteUser)
+router.route("/admin/user/:id").get(UserLoggedIn, isAdmin("admin") ,SingleUser)
+
 
 // manager only Route  (//?)
 router.route("/manager/user").get(UserLoggedIn, isAdmin("manager") ,ManagerOnly)
@@ -113,20 +112,8 @@ router.route("*").get((_, res) => {
 })
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 module.exports = router
+
+
+
+*/

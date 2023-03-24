@@ -232,18 +232,12 @@ exports.changePassword = async (req, res) => {
 		const userId=req.user.id
 		const user = await User.findById(userId).select("+password");
 
-		console.error("👉👉 ~ file: userController.js:237 ~ exports.changePassword= ~ user:", user)
-
-
-
 		// checking with old password 
 		const isCorrectPassword =await user.isValidatedPassword(
 			req.body.OldPassword
 		)
 
-		console.error("👉👉 ~ file: userController.js:252 ~ exports.changePassword= ~ isCorrectPassword:", isCorrectPassword)
-
-
+		
 		if (!isCorrectPassword) {
 			return res.json({
 				message: "Password is incorrect or Not Match",
@@ -319,3 +313,146 @@ exports.updateUserDetails = async (req, res) => {
 
 
 
+exports.GetAllusers = async (req, res) => {
+	try {
+  
+		const allUsers = await User.find({})
+		res.status(200).json({
+			success: true,
+			users: allUsers
+		});
+
+	} catch (error) {
+		console.error(error);
+		res.status(500).json({
+			success: false,
+			message: "An error occurred while fetching users"
+		});
+	}
+};
+
+
+exports.SingleUser = async (req, res) => {
+	try {
+  
+		const CurrentUser = await User.findById(req.params.id)
+
+		if(!CurrentUser){
+			return res.status(400).json({
+				success: false,
+				message:"User not found"
+			})
+		}
+
+		res.status(200).json({
+			success: true,
+			users: CurrentUser 
+		});
+
+	} catch (error) {
+		console.error(error);
+		res.status(500).json({
+			success: false,
+			message: "An error occurred while fetching users"
+		});
+	}
+};
+
+exports.adminUpdateSingleUser = async (req, res) => {
+	try {
+
+	// getting data from body
+	var newdata ={
+		email:req.body.email,
+		name:req.body.name,
+		role:req.body.role
+	   }
+
+	   // updating data
+	   const updatedData = await User.findByIdAndUpdate(req.params.id,newdata,{
+		   new:true,
+		   runValidators:true
+	   })
+
+
+	   /// sending response
+	   res.status(200).json({
+		   message:"updated successfully",
+		   userdata:updatedData
+	   })
+
+	
+	} catch (error) {
+		console.error(error);
+		res.status(500).json({
+			success: false,
+			message: "An error occurred while fetching users"
+		});
+	}
+};
+
+
+exports.adminDeleteUser = async (req, res) => {
+	try {
+
+	 const user = await User.findById(req.params.id)
+
+	 if(!user){
+		return res.status(404).json({message: "User not found"})
+	 }
+
+	 const ImageId = user.photo.id
+
+	 let responseByphto = await cloudinary.uploader.destroy(ImageId)
+
+	 // removig the user
+	 await User.findOneAndDelete(req.params.id)
+
+	   /// sending response
+	   res.status(200).json({
+		   message:"Deleted successfully",
+	   })
+
+	
+	} catch (error) {
+		console.error(error);
+		res.status(500).json({
+			success: false,
+			message: "An error occurred while fetching users"
+		});
+	}
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+exports.ManagerOnly = async (req, res) => {
+	try {
+  
+		const allUsers = await User.find({role:"user"})
+		res.status(200).json({
+			success: true,
+			users: allUsers
+		});
+
+	} catch (error) {
+		console.error(error);
+		res.status(500).json({
+			success: false,
+			message: "An error occurred while fetching users"
+		});
+	}
+};
