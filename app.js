@@ -50,11 +50,22 @@ app.use(express.static(staticpath));
 
 
 
+//  importing user route
+const productrouter = require("./routes/products");
+
 //  importing home route
 const homerouter = require("./routes/home");
 
+
 //  importing user route
 const userrouter = require("./routes/user");
+
+
+
+
+
+
+
 
 // morgan middleware
 app.use(morgan("tiny"));
@@ -62,6 +73,8 @@ app.use(morgan("tiny"));
 // setting route
 app.use("/", homerouter);
 app.use("/", userrouter);
+app.use("/", productrouter);
+
 
 
 

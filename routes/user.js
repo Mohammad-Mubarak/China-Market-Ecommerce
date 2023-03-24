@@ -108,9 +108,9 @@ router.route("/password/update").get((_, res) => {
 })
 
 // Error page Route
-router.route("*").get((_, res) => {
-	res.render("Error");
-})
+// router.route("*").get((_, res) => {
+// 	res.render("Error");
+// })
 
 
 
