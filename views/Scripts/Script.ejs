@@ -1,0 +1,83 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+
+<script>
+
+// Add to card functionality
+let addtocart = document.querySelectorAll(".add-to-cart")
+addtocart.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    let updateproduct = btn.dataset.current
+    let data = JSON.parse(updateproduct)
+    addcartproduct(data) 
+
+  })
+})
+
+
+// add to cart functionality done
+function addcartproduct(data) {
+  fetch('/add/cart', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  })
+  .then(response => response.json())
+  .then(json => console.log(json))
+  .catch(error => console.error(error));
+}
+
+
+// Navbar Script for toggle
+ const toggleButton = document.querySelector('[data-collapse-toggle="navbar-sticky"]');
+const menu = document.getElementById('navbar-sticky');
+toggleButton.addEventListener('click', function() {
+  menu.classList.toggle('hidden');
+});
+
+
+
+
+
+
+// change password
+  $("#confirm_password").on("keyup", function () {
+    var password = $("#password").val();
+    var confirmPassword = $(this).val();
+    if (confirmPassword !== "" && password !== confirmPassword) {
+      $("#validation").html("Password does not match!").show();
+    } else {
+      $("#validation").hide();
+    }
+  });
+  
+  $("#showPw").click(function () {
+    var passInput = $("#password, #confirm_password");
+    if (passInput.attr("type") === "password") {
+      passInput.attr("type", "text");
+      $("#showHide").html("Hide");
+    } else {
+      passInput.attr("type", "password");
+      $("#showHide").html("Show");
+    }
+  });
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>

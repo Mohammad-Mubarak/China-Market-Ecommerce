@@ -8,9 +8,8 @@ const router = express.Router()
 
 // controllers
 const {testing,
-    AddProduct
-
-
+    AddProduct,
+    AddTOcart
 
 } = require("../controller/ProductController")
 
@@ -19,11 +18,25 @@ const {UserLoggedIn} = require('../middlewares/UserLoggedIn')
 const {isAdmin} = require('../middlewares/isAdmin')
 
 
-router.route("/p").get(testing)
 
 
 // Adding product route
 router.route("/add/product").post(UserLoggedIn,AddProduct)
+
+
+// // Adding product route
+// router.route("/addcartproduct").post(UserLoggedIn,AddTOcart)
+
+
+
+
+// Adding product route
+router.route("/checkout").get((_,res)=>{
+    res.render("Product/Check",{layout:false})
+})
+
+
+
 
 
 

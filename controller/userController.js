@@ -17,7 +17,7 @@ const TokencreateVersion2 = require("../utils/createTokenVersion2");
 // All Routes  Here--------------------------------------------------------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 exports.sign = async (req, res) => {
 	try {
-		res.render("signupform");
+		res.render("Auth/signupform");
 	} catch (error) {
 		
 		res.status(500).send("Server Error");
@@ -100,9 +100,7 @@ exports.logout = async (req, res) => {
 			expires: new Date(Date.now()),
 			http: true,
 		});
-		return res.json({
-			message: "logout Successfully",
-		});
+		return res.redirect("/")
 	} catch (error) {
 		
 		res.status(500).send("Server Error");
@@ -312,7 +310,6 @@ exports.updateUserDetails = async (req, res) => {
 
 
 
-
 exports.GetAllusers = async (req, res) => {
 	try {
   
@@ -422,12 +419,6 @@ exports.adminDeleteUser = async (req, res) => {
 		});
 	}
 };
-
-
-
-
-
-
 
 
 

@@ -9,12 +9,12 @@ exports.UserLoggedIn = async (req, res, next) => {
 		if (!token && req.header("Authorization")) {
 			token = req.header("Authorization").replace("Bearer ", "");
 		  }
-		
 		  if (!token) {
 			// return res.json({message:"Login first to access this page"});
-			return res.render("login",{
+			return res.render("Auth/login",{
 				isLogin: true,
-				message: "Login first to access this page"
+				message: "Login first to access this page",
+				
 			})
 		  }
 

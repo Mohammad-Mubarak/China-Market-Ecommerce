@@ -7,9 +7,7 @@ const Product = require("../models/product")
 
 
 exports.testing = (req, res) => {
-	res.json({
-		message: "done sending request",
-	});
+	res.render("overview")
 };
 
 // adding product 
@@ -65,3 +63,8 @@ exports.AddProduct = async (req, res) => {
 		});
 	}
 };
+
+
+
+
+// adding product 

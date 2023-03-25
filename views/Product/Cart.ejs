@@ -1,0 +1,120 @@
+<%- include("../Scripts/Style"); -%>
+
+<div class="position-relative bg-secondary h-full w-full">
+
+  <div class="w-screen position-absolute m-auto my-6 max-w-sm border border-gray-600 bg-gray-100 p-4 pt-4 sm:p-6 lg:p-8"
+    aria-modal="true" role="dialog" tabindex="-1">
+  
+    <div class="mt-6 space-y-6">
+      <ul class="space-y-4">
+
+
+
+        <% cart.forEach(function(product) { %>
+
+
+        <li class="flex items-center gap-4">
+          <img
+            src="<%= product.thumbnail %>"
+            alt="APPLE iPhone 13 (Midnight, 128 GB)" class="h-16 w-16 rounded object-contain" />
+          <div>
+            <h3 class="text-sm text-gray-900">
+              <%= product.title %>
+            </h3>
+            <dl class="mt-0.5 space-y-px text-[10px] text-gray-600">
+              <div>
+                <dd class="inline font-bold">₹<%= product.price %></dd>
+              </div>
+              <div>
+                <dt class="inline">Brand: </dt>
+                <dd class="inline"><%= product.brand %></dd>
+              </div>
+              <div>
+                <dt class="inline">Color:</dt>
+                <dd class="inline">Midnight</dd>
+              </div>
+            </dl>
+          </div>
+         
+            <button data-current="<%=JSON.stringify(product) %>"  class="relative delete-cart ml-auto block text-gray-600 transition hover:scale-110">
+              <span class="sr-only">Delete product</span>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                class="h-5 w-5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+            </button>
+        
+        
+        </li>
+       
+        <% }) %>
+      </ul>
+      <div class="space-y-4 text-center">
+        <a href="#"
+          class="block rounded border border-gray-600 px-5 py-3 text-sm text-gray-600 transition hover:ring-1 hover:ring-gray-400">
+          View my cart (<%= TotalProduct %>)
+        </a>
+        <button
+          class="block w-full rounded-md bg-gray-600 px-3.5 py-1.5 text-base font-semibold leading-7 text-white hover:bg-gray-500">
+          Checkout
+        </button>
+        <a href="/"
+          class="inline-block text-sm text-gray-500 underline underline-offset-4 transition hover:text-gray-600">
+          Continue shopping
+        </a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</div>
+
+
+
+<script>
+
+
+
+let deleteProduct = document.querySelectorAll(".delete-cart")
+
+
+deleteProduct.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    let updateproduct = btn.dataset.current
+    let data = JSON.parse(updateproduct)
+  
+    addcartproduct(data) 
+
+  })
+})
+
+
+// Deleteing the product from cart 
+function addcartproduct(data) {
+  console.log(data)
+  
+  fetch('/delete/product/cart/', {
+    method: 'DELETE',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  })
+  .then(response => response.json())
+  .then(json => console.log(json))
+  .catch(error => console.error(error));
+
+
+}
+
+
+</script>
+
+
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,275 @@
+
+<div
+  class="w-full px-4 mx-auto py-4 md:py-6 dark:text-gray-300 bg-white">
+  <div
+    class="flex md:text-left text-center md:justify-between justify-center items-center">
+    <div>
+      <h2 class="text-3xl font-medium">Popular Categories</h2>
+      <div class="mt-2">Choose from variety of items</div>
+    </div>
+    <div class="md:flex hidden items-center uppercase text-gray-500">
+      All Categories
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="2"
+        stroke="currentColor"
+        class="ml-1 w-4 h-4">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M8.25 4.5l7.5 7.5-7.5 7.5"></path>
+      </svg>
+    </div>
+  </div>
+  <div class="my-10">
+    <div class="grid gap-6 grid-cols-2 sm:grid-cols-3 lg:grid-cols-6">
+      <a
+        class="bg-gray-100 dark:bg-gray-800 rounded-xl flex flex-col justify-center items-center p-4 md:p-6"
+        href="">
+        <img
+          class="h-20 w-20"
+          src="https://dev-ui-image-assets.s3.ap-south-1.amazonaws.com/category/22fddf3c7da4c4f4.png"
+          alt="Mobiles" />
+        <div class="font-bold mt-4 text-center">Mobiles</div>
+      </a>
+      <a
+        class="bg-gray-100 dark:bg-gray-800 rounded-xl flex flex-col justify-center items-center p-4 md:p-6"
+        href="">
+        <img
+          class="h-20 w-20"
+          src="https://dev-ui-image-assets.s3.ap-south-1.amazonaws.com/category/c12afc017e6f24cb.png"
+          alt="Fashion" />
+        <div class="font-bold mt-4 text-center">Fashion</div>
+      </a>
+      <a
+        class="bg-gray-100 dark:bg-gray-800 rounded-xl flex flex-col justify-center items-center p-4 md:p-6"
+        href="">
+        <img
+          class="h-20 w-20"
+          src="https://dev-ui-image-assets.s3.ap-south-1.amazonaws.com/category/69c6589653afdb9a.png"
+          alt="Electronics" />
+        <div class="font-bold mt-4 text-center">Electronics</div>
+      </a>
+      <a
+        class="bg-gray-100 dark:bg-gray-800 rounded-xl flex flex-col justify-center items-center p-4 md:p-6"
+        href="">
+        <img
+          class="h-20 w-20"
+          src="https://dev-ui-image-assets.s3.ap-south-1.amazonaws.com/category/ab7e2b022a4587dd.jpg"
+          alt="Home" />
+        <div class="font-bold mt-4 text-center">Home</div>
+      </a>
+      <a
+        class="bg-gray-100 dark:bg-gray-800 rounded-xl flex flex-col justify-center items-center p-4 md:p-6"
+        href="">
+        <img
+          class="h-20 w-20"
+          src="https://dev-ui-image-assets.s3.ap-south-1.amazonaws.com/category/0ff199d1bd27eb98.png"
+          alt="Appliances" />
+        <div class="font-bold mt-4 text-center">Appliances</div>
+      </a>
+      <a
+        class="bg-gray-100 dark:bg-gray-800 rounded-xl flex flex-col justify-center items-center p-4 md:p-6"
+        href="">
+        <img
+          class="h-20 w-20"
+          src="https://dev-ui-image-assets.s3.ap-south-1.amazonaws.com/category/71050627a56b4693.png"
+          alt="Travel" />
+        <div class="font-bold mt-4 text-center">Travel</div>
+      </a>
+      <a
+        class="bg-gray-100 dark:bg-gray-800 rounded-xl flex flex-col justify-center items-center p-4 md:p-6"
+        href="">
+        <img
+          class="h-20 w-20"
+          src="https://dev-ui-image-assets.s3.ap-south-1.amazonaws.com/category/dff3f7adcf3a90c6.png"
+          alt="Beauty, Toys &amp; More" />
+        <div class="font-bold mt-4 text-center">Beauty, Toys &amp; More</div>
+      </a>
+    </div>
+
+
+    
+  </div>
+  <div
+    class="md:hidden flex items-center justify-center mt-8 font-medium uppercase text-gray-500">
+    All Categories
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="2"
+      stroke="currentColor"
+      class="ml-1 w-4 h-4">
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M8.25 4.5l7.5 7.5-7.5 7.5"></path>
+    </svg>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Product List -->
+<section class="py-10 bg-gray-100">
+  <div class="mx-auto grid max-w-6xl  grid-cols-1 gap-6 p-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+    <% pizza.forEach(function(product) { %>
+      <article class="rounded-xl bg-white p-3 shadow-lg hover:shadow-xl hover:transform hover:scale-105 duration-300">
+      
+          <div class="relative flex items-end overflow-hidden rounded-xl h-52">
+
+            <a href="/overview/<%=product.id %>">
+                <img src="<%= product.thumbnail %>" alt="<%= product.title%> Photo" class="w-full object-cover object-center" />
+              </a>
+            <div class="flex items-center space-x-1.5 rounded-lg bg-green-500 px-2 py-1.5 text-white duration-100 hover:bg-blue-600 absolute bottom-0 w-17">
+              <button class="text-sm">Add to Wishlist</button>
+            </div>
+          </div>
+          <div class="mt-1 p-2">
+            <h2 class="text-slate-700"><%= product.title %></h2>
+            <p class="mt-1 text-sm text-slate-400"><%= product.brand %>,<%= product.category %></p>
+            <div class="mt-3 flex items-end justify-between">
+              <p class="text-lg font-bold text-blue-500"> ₹ <%= product.price %> </p>
+               <div class="flex items-center space-x-1.5 rounded-lg bg-blue-500 px-4 py-1.5 text-white duration-100 hover:bg-blue-600">
+                <button  data-current="<%=JSON.stringify(product) %>" class="text-sm add-to-cart">Add to cart</button>
+               </div>
+            </div>
+          </div>
+      
+      </article>
+      <% }) %>
+</section>
+  <%- include("../commoncode/Pagination"); -%>
+  <%- include("../commoncode/Footer"); -%>
+
+  <!-- // Addd to cart funtionality  -->
+   <script>
+
+
+/*
+    let addtocart = document.querySelectorAll(".add-to-cart")
+        addtocart.forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+        
+         let updateproduct = btn.dataset.current
+            // let data = JSON.parse(updateproduct)
+           addcartproduct(updateproduct)
+        })
+    })
+
+
+    function addcartproduct(){
+            fetch("/cart", {
+            method: "POST",
+            headers: {
+            "Content-Type": "application/json"
+            },
+            body: updateproduct
+            })
+            .then(response => response.json())
+            .then(data => console.log(data))
+            
+
+    }
+
+*/
+
+
+
+// let addtocart = document.querySelectorAll(".add-to-cart")
+// addtocart.forEach((btn) => {
+//   btn.addEventListener("click", (e) => {
+//     let updateproduct = btn.dataset.current
+//     let data = JSON.parse(updateproduct)
+//     addcartproduct(data) 
+
+//   })
+// })
+
+
+// // add to cart functionality done
+// function addcartproduct(data) {
+   
+
+//   let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  
+//   // Check if the product is already in the cart
+
+//   cart.map(val=>{
+//     console.log(val);
+//   })
+
+
+
+//   let index = cart.findIndex(item =>{
+//     console.log(item.id)
+//     item.id === data.id
+//   });
+
+
+//   if (index !== -1) {
+//     // If the product already exists, increase its quantity and price
+//     cart[index].quantity += data.quantity;
+//     cart[index].price += data.price;
+//   } else {
+//     // If the product doesn't exist, add it to the cart
+//     cart.push(data);
+//   }
+  
+//   localStorage.setItem("cart", JSON.stringify(cart));
+// }
+
+
+
+
+
+
+
+// // Check if the cart already exists in the localStorage
+// let cart = JSON.parse(localStorage.getItem("cart")) || [];
+// // Push the new product data into the cart array
+// cart.push(data);
+// // Convert the cart array to JSON and store it in the localStorage
+// localStorage.setItem("cart", JSON.stringify(cart));
+
+
+ 
+
+
+   </script>
+
+
+
+
+
+
+

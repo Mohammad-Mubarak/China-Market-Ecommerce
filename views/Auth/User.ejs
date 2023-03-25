@@ -1,0 +1,117 @@
+<%- include("../Scripts/Style"); -%>
+
+<div class="flex items-center mt-10 justify-center dark:bg-slate-800"></div>
+    <div
+      class="flex dark:bg-slate-800 items-center justify-center px-4 py-10 sm:px-6 lg:px-8 sm:py-16 lg:py-24">
+      <div class="xl:w-full xl:max-w-sm 2xl:max-w-md xl:mx-auto">
+    </span>
+    <span class="relative inline-block">
+      <img
+        class="h-14 w-14 rounded-full"
+        src="https://overreacted.io/static/profile-pic-c715447ce38098828758e525a1128b87.jpg"
+        alt="Dan_Abromov" />
+      <span
+        class="absolute bottom-0 right-0 block h-3.5 w-3.5 rounded-full bg-green-600 ring-2 ring-white"></span>
+    </span>
+        <p class="mt-2 text-base text-gray-600 dark:text-gray-300">
+          Rohit
+         
+        </p>
+        <form action="/update/user" method="POST"  class="mt-8">
+          <div class="space-y-5">
+            <div>
+              <label
+                for="name"
+                class="text-base font-medium text-gray-900 dark:text-gray-200">
+                Full Name
+              </label>
+              <div class="mt-2.5">
+                <input
+                  class="flex h-10 w-full rounded-md border border-gray-300 bg-transparent py-2 px-3 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-700 dark:text-gray-50 dark:focus:ring-gray-400 dark:focus:ring-offset-gray-900"
+                  type="text"
+                  placeholder="Enter You Full Name"
+                  id="name" />
+              </div>
+            </div>
+            <div>
+              <label
+                for="email"
+                class="text-base font-medium text-gray-900 dark:text-gray-200">
+                Email address
+              </label>
+              <div class="mt-2.5">
+                <input
+                  class="flex h-10 w-full rounded-md border border-gray-300 bg-transparent py-2 px-3 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-700 dark:text-gray-50 dark:focus:ring-gray-400 dark:focus:ring-offset-gray-900"
+                  type="email"
+                  placeholder="Enter Your Email"
+                  id="email" />
+              </div>
+            </div>
+            <div>
+              <label
+                for="photo"
+                class="text-base font-medium text-gray-900 dark:text-gray-200">
+                Update Profile
+              </label>
+              
+<div class="flex items-center justify-center w-full">
+    <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
+        <div class="flex flex-col items-center justify-center pt-5 pb-6">
+            <svg aria-hidden="true" class="w-10 h-10 mb-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
+            <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to upload</span> or drag and drop</p>
+            <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
+        </div>
+        <input id="dropzone-file" type="file" class="hidden" />
+    </label>
+</div> 
+
+            </div>
+            <div>
+              <button
+                class="w-full inline-flex items-center justify-center rounded-md bg-indigo-600 px-3.5 py-2.5 text-base font-semibold leading-7 text-white hover:bg-indigo-500">
+                Update Profile Now
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-4 h-4 ml-2">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"></path>
+                </svg>
+              </button>
+       <a href="/password/update">
+              <button
+              type="button"
+              class="w-full inline-flex items-center mt-5 justify-center rounded-md bg-green-600 px-3.5 py-2.5 text-base font-semibold leading-7 text-white hover:bg-green-500">
+              Change Password
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-4 h-4 ml-2">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"></path>
+              </svg>
+            </button>
+
+        </a>
+
+
+            </div>
+          </div>
+        </form>
+      
+      </div>
+    </div>
+  </div>
+  
+</body>
+</html>

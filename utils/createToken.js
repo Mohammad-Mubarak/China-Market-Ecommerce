@@ -5,12 +5,9 @@ const Tokencreate = (user, res) => {
 	};
 
 	const Token = user.getJwtToken();
+	res.setHeader('Authorization', `Bearer ${Token}`);
     user.password =undefined
-	return res.status(200).cookie("token", Token, option).json({
-		success: true,
-		Token,
-		user,
-	});
+	return res.status(200).cookie("token", Token, option).redirect("/")
 };
 
 module.exports = Tokencreate

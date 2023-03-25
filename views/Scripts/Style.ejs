@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.4.2/zxcvbn.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css');
+
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
+
+body {
+    font-family: 'Oswald', sans-serif;
+}
+
+
+        .sizeRef {
+            max-width: 1000px;
+        }
+
+        .text-9xl {
+            font-size: 14rem;
+        }
+
+        @media(max-width: 645px) {
+            .text-9xl {
+                font-size: 5.75rem;
+            }
+            .text-6xl {
+                font-size: 1.75rem;
+            }
+            .text-2xl {
+                font-size: 1rem;
+                line-height: 1.2rem;
+            }
+            .py-8 {
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+            }
+            .px-6 {
+                padding-left: 1.2rem;
+                padding-right: 1.2rem;
+            }
+            .mr-6 {
+                margin-right: 0.5rem;
+            }
+
+            .px-12 {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+        }
+
+        
+    .pokeball {
+        -webkit-animation-name: spinner;
+        animation-name: spinner;
+        -webkit-animation-duration: 6s;
+        animation-duration: 6s;
+        -webkit-animation-iteration-count: infinite;
+        animation-iteration-count: infinite;
+        -webkit-animation-timing-function: linear;
+        animation-timing-function: linear
+    }
+
+    @-webkit-keyframes spinner {
+        83.33% {
+            -webkit-transform: rotate(0);
+            transform: rotate(0)
+        }
+
+        100% {
+            -webkit-transform: rotate(360deg);
+            transform: rotate(360deg)
+        }
+    }
+
+    @keyframes spinner {
+        83.33% {
+            -webkit-transform: rotate(0);
+            transform: rotate(0)
+        }
+
+        100% {
+            -webkit-transform: rotate(360deg);
+            transform: rotate(360deg)
+        }
+    }
+
+    dialog[open] {
+        animation: appear .15s cubic-bezier(0, 1.8, 1, 1.8)
+    }
+
+    dialog::backdrop {
+        background: linear-gradient(45deg, rgba(0, 0, 0, .5), rgba(54, 54, 54, .5));
+        backdrop-filter: blur(3px)
+    }
+
+    @keyframes appear {
+        from {
+            opacity: 0;
+            transform: translateX(-3rem)
+        }
+
+        to {
+            opacity: 1;
+            transform: translateX(0)
+        }
+    }
+    </style>
+
+</head>

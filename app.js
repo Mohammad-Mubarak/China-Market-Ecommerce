@@ -6,7 +6,7 @@ const ExpressFileUpload = require("express-fileupload");
 const path = require("path");
 const ejs = require("ejs");
 const bodyParser = require("body-parser");
-
+var expressLayouts = require('express-ejs-layouts');
 
 //? Importing middleware
 const {UserLoggedIn} = require("./middlewares/UserLoggedIn")
@@ -30,7 +30,6 @@ app.use(cookieParser());
 
 app.use(
 	ExpressFileUpload({
-		debug: true,
 		useTempFiles: true,
 		tempFileDir:path.join(__dirname,"./images") 
 	})
@@ -39,6 +38,8 @@ app.use(
 
 
 app.set("view engine", "ejs");
+
+app.use(expressLayouts);
 
 // common middleware
 app.use(express.json());
@@ -60,15 +61,20 @@ const productrouter = require("./routes/products");
 //  importing home route
 const homerouter = require("./routes/home");
 
+//  importing cart route
+const cartrouter = require("./routes/Cart");
+
+
 
 //  importing user route
 const userrouter = require("./routes/user");
 
 
-
-
-
-
+/// setting global req which can access from views also
+app.use((req, res, next) => {
+	app.locals.req = req;
+	next();
+  });
 
 
 // morgan middleware
@@ -78,6 +84,18 @@ app.use(morgan("tiny"));
 app.use("/", homerouter);
 app.use("/", userrouter);
 app.use("/", productrouter);
+app.use("/", cartrouter);
+
+
+
+// Error page Route
+app.get("*",(_, res) => {
+	res.render("Home/Error");
+})
+
+
+
+
 
 
 

@@ -30,13 +30,27 @@ const {isAdmin} = require('../middlewares/isAdmin')
 // get and post route for signup (//?)
 router.route("/register").get(sign).post(signup)
 
-//login logout route  (//?)
-router.route("/login").post(login)
+//login get and postt route  (//?)
+router.route("/login").post(login).get((req, res) => {
+	res.render("Auth/login",{
+		isLogin:false,
+		message:"No Need"
+	});
+})
+
+// logout route 
 router.route("/logout").get(logout)
 
-// forgot password route (//?)
-router.route("/forgotpassword").post(forgotpassword)
+
+// forgot password Post and get route (//?)
+router.route("/forgotpassword").post(forgotpassword).get((_, res) => {
+	res.render("Auth/ForgottenPassword");
+
+})
+
+// Rest passowrd with token
 router.route("/password/reset/:token").post(Resetpassword)
+
 
 
 // to get current user details (//?)
@@ -48,7 +62,9 @@ router.route("/password/update").post(UserLoggedIn,changePassword)
 
 
 // update name email or profile pic (//?)
-router.route("/update/user").post(UserLoggedIn,updateUserDetails)
+router.route("/update/user").post(UserLoggedIn,updateUserDetails).get(UserLoggedIn,(_, res) => {
+	res.render("Auth/User");
+})
 
 
 // Admin only Route  (//?)
@@ -63,36 +79,24 @@ router.route("/admin/user/:id")
 .put(UserLoggedIn, isAdmin("admin") ,adminUpdateSingleUser)
 .delete(UserLoggedIn, isAdmin("admin") ,adminDeleteUser)
 
+
+
+
 // manager only Route  (//?)
 router.route("/manager/user").get(UserLoggedIn, isAdmin("manager") ,ManagerOnly)
 
 
-// All get routes
-// login get route
-router.route("/login").get((req, res) => {
-	res.render("login",{
-		isLogin:false,
-		message:"No Need"
-	});
-})
+
 
 // forgot password token 
 router.route("/password/reset/:token").get((_, res) => {
-	res.render("PasteLink");
+	res.render("Auth/PasteLink");
 })
 
-// get route for forgotten password
-router.route("/forgotpassword").get((_, res) => {
-	res.render("ForgottenPassword");
 
-})
 
 // Get route for login Updating details of user
-router.route("/update/user").get((_, res) => {
-	res.render("UpdateUser");
-
-
-})
+// router.route("/update/user").get()
 
 
 // overview of prodcut
@@ -103,17 +107,9 @@ router.route("/product/details").get((_, res) => {
 
 // change password route
 router.route("/password/update").get((_, res) => {
-	res.render("ChangePassword");
+	res.render("Auth/ChangePassword");
 
 })
-
-// Error page Route
-// router.route("*").get((_, res) => {
-// 	res.render("Error");
-// })
-
-
-
 
 
 
