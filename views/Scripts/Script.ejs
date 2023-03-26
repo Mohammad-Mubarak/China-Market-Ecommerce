@@ -108,6 +108,41 @@ toggleButton.addEventListener('click', function() {
 
 
 
+
+  // Add to card functionality
+  let add = document.querySelectorAll(".add-to")
+
+add.forEach(btn => {
+  btn.addEventListener("click", () => {
+    let updateproduct = btn.dataset.current
+
+    
+
+    let data = JSON.parse(updateproduct)
+
+    console.log("🧜‍♂️🦴 ~> file: Script.ejs:123 ~> btn.addEventListener ~> data:  :-> >", data)
+
+    addcartproduct(data) 
+  })
+})
+
+  
+  // add to cart functionality done
+  function addcartproduct(data) {
+    fetch('/add/cart', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(json => console.log(json))
+    .catch(error => console.error(error));
+  }
+
+  $('.add-to').click(function() {
+    location.reload();
+    })
+    
 </script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
