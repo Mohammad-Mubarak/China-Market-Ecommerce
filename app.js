@@ -8,6 +8,10 @@ const ejs = require("ejs");
 const bodyParser = require("body-parser");
 var expressLayouts = require('express-ejs-layouts');
 
+const Swal = require('sweetalert2')
+
+
+
 //? Importing middleware
 const {UserLoggedIn} = require("./middlewares/UserLoggedIn")
 
@@ -68,6 +72,7 @@ const cartrouter = require("./routes/Cart");
 
 //  importing user route
 const userrouter = require("./routes/user");
+
 
 
 /// setting global req which can access from views also

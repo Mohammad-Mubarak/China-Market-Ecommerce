@@ -1,4 +1,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="sweetalert2.all.min.js"></script>
 <script>
 
 // Add to card functionality
@@ -143,6 +146,25 @@ add.forEach(btn => {
     location.reload();
     })
     
+
+    function hey(){
+     
+setTimeout(
+  Swal.fire({
+    position: 'center',
+    icon: 'success',
+    title: 'Details Updated Successfully',
+    showConfirmButton: false,
+    timer: 1500
+  }), 3000);
+  
+    }
+
+
+
+
+
+
 </script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 

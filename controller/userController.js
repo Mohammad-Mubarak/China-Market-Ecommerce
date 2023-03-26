@@ -220,10 +220,6 @@ exports.getLoggedInDetails = async (req, res) => {
 	try {
 		
 		const user = await User.findById(req.user.id);
-
-		console.log("🧜‍♂️🦴 ~> file: userController.js:221 ~> exports.getLoggedInDetails= ~> user:  :-> >", user)
-
-
 		// return res.status(200).json({ user });
 
 		res.render("Home/UserDetails",{user})
@@ -273,11 +269,6 @@ exports.updateUserDetails = async (req, res) => {
 
 		const q= req.body
 
-		console.log("🧜‍♂️🦴 ~> file: userController.js:276 ~> exports.updateUserDetails= ~> q:  :-> >", q)
-
-		// getting data from body
-	
-	
 		var newdata ={
          email:req.body.email,
 		 name:req.body.name
@@ -286,11 +277,9 @@ exports.updateUserDetails = async (req, res) => {
 	
 
          // checking file is available or not
-		if(req.files){
-			
+		if(req.files){	
 			// geting user information
           let user =await User.findById(req.user.id)
-
 		  // extracting user photo id
 		  let photoId =user.photo.id
 
@@ -301,7 +290,6 @@ exports.updateUserDetails = async (req, res) => {
 		 const result = await cloudinary.uploader.upload(req.files.photo.tempFilePath, {
 				folder: "ecommerce",
 			});
-
 
 			// adding new attriubte to data to update
 			newdata.photo = {
