@@ -25,10 +25,11 @@ exports.UserLoggedIn = async (req, res, next) => {
 		
 	} catch (error) {
 		if (error instanceof jwt.TokenExpiredError) {
-			return res.status(401).json({
-				message: "Session Expired",
-				error: error.message,
-			});
+			// return res.status(401).json({
+			// 	message: "Session Expired",
+			// 	error: error.message,
+			// });
+			return res.render("Auth/login")
 		}
 	}
 };

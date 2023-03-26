@@ -1,17 +1,5 @@
 <%- include("../Scripts/Style")%>
-
-
-
 <%- include("../Componentes/Checkouthead")%>
-
-
-
-
-
-
-
-
-
 
   <div class="grid sm:px-10 lg:grid-cols-2 lg:px-20 xl:px-32">
     <div class="px-4 pt-8">
@@ -98,12 +86,12 @@
           </div>
           <div class="flex items-center justify-between">
             <p class="text-sm font-medium text-gray-900">Shipping</p>
-            <p class="font-semibold text-gray-900">₹  &nbsp; 70</p>
+            <p class="font-semibold text-gray-900">₹  &nbsp; <%= total ==0 ? 0 : 70 %> </p>
           </div>
         </div>
         <div class="mt-6 flex items-center justify-between">
           <p class="text-sm font-medium text-gray-900">Total</p>
-          <p class="text-2xl font-semibold text-gray-900">₹  &nbsp; <%=total +70 %></p>
+          <p class="text-2xl font-semibold text-gray-900">₹  &nbsp; <%=  total > 0 ? total +70 : 0 %></p>
         </div>
       </div>
       <button class="mt-4 mb-8 w-full rounded-md bg-gray-900 px-6 py-3 font-medium text-white">Place Order</button>
