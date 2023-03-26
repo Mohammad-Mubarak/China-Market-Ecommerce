@@ -41,9 +41,11 @@ toggleButton.addEventListener('click', function() {
 // change password
   $("#confirm_password").on("keyup", function () {
     var password = $("#password").val();
+    
     var confirmPassword = $(this).val();
+
     if (confirmPassword !== "" && password !== confirmPassword) {
-      $("#validation").html("Password does not match!").show();
+      $("#validation").html("Give Long Password").show();
     } else {
       $("#validation").hide();
     }
@@ -60,7 +62,6 @@ toggleButton.addEventListener('click', function() {
     }
   });
   
-
 
 
 

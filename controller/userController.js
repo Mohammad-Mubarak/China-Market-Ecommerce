@@ -72,18 +72,21 @@ exports.login = async (req, res) => {
 
 		// agar nahi hai database mai
 		if (!existingUser) {
-			return res.json({
-				message: "you are not registerd to our database",
-			});
+			return res.render("Auth/login",{
+				isLogin:true,
+				message:"You are not Registered"
+			})
 		}
 		// trying to crpyt password
 		const finaluser = await existingUser.isValidatedPassword(password);
 
 		// if not match
 		if (!finaluser) {
-			res.json({
-				message: "password not match",
-			});
+			
+			return res.render("Auth/login",{
+				isLogin:true,
+				message:"wrong password"
+			})
 		}
 		// token creating and sending to user
 		// TokencreateVersion2(existingUser, res);
@@ -237,10 +240,13 @@ exports.changePassword = async (req, res) => {
 		const userId=req.user.id
 		const user = await User.findById(userId).select("+password");
 
+
+	 
 		// checking with old password 
 		const isCorrectPassword =await user.isValidatedPassword(
 			req.body.OldPassword
 		)
+
 
 		
 		if (!isCorrectPassword) {
@@ -258,22 +264,19 @@ exports.changePassword = async (req, res) => {
 	} catch (error) {
 		
 	}
+
+
 };
 
 exports.updateUserDetails = async (req, res) => {
 	try {
-		
-		
-
 		// getting data from body
 		var newdata ={
          email:req.body.email,
 		 name:req.body.name
 		}
 
-		
-
-
+	
 
          // checking file is available or not
 		if(req.files){
@@ -309,12 +312,8 @@ exports.updateUserDetails = async (req, res) => {
 
 		
 		// return res.status(200).json({ user });
-		
-
+	
 		res.render("Home/UserDetails",{user})
-
-
-
 
 	} catch (error) {
 		

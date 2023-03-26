@@ -57,11 +57,8 @@ router.route("/password/reset/:token").post(Resetpassword)
 router.route("/userdashboard").get(UserLoggedIn,getLoggedInDetails)
 
 
-// update old password (//?)
-router.route("/password/update").post(UserLoggedIn,changePassword)
 
-
-// update name email or profile pic (//?)
+// user update name email or profile pic (//?)
 router.route("/update/user").post(UserLoggedIn,updateUserDetails).get(UserLoggedIn,(_, res) => {
 	res.render("Auth/User");
 })
@@ -95,18 +92,18 @@ router.route("/password/reset/:token").get((_, res) => {
 
 
 
-// Get route for login Updating details of user
-// router.route("/update/user").get()
-
-
 // overview of prodcut
 router.route("/product/details").get((_, res) => {
 	res.render("overview");
 })
 
 
-// change password route
-router.route("/password/update").get((_, res) => {
+
+
+
+// update old password (//?)
+router.route("/password/update").post(UserLoggedIn,changePassword)
+.get((_, res) => {
 	res.render("Auth/ChangePassword");
 
 })
@@ -114,6 +111,11 @@ router.route("/password/update").get((_, res) => {
 
 
 
+// / change password route
+router.route("/t").get((_, res) => {
+	res.render("c");
+
+})
 
 
 
