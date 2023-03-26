@@ -21,15 +21,11 @@ const {UserLoggedIn} = require('../middlewares/UserLoggedIn')
 const {isAdmin} = require('../middlewares/isAdmin')
 
 
-
-
-
 // Adding product route
 router.route("/add/cart").post(UserLoggedIn,AddTOcart)
 
 
 // router.route("/user/cart").get(UserLoggedIn,UserCart)
-
 
 
 /// ??  cart route
@@ -40,7 +36,6 @@ router.route("/cart").get(UserLoggedIn,UserCart)
 
 // Delete Product Route //?
 router.route("/delete/product/cart/").delete(UserLoggedIn,DeleteProduct)
-
 
 
 
@@ -66,8 +61,6 @@ router.route("/checkout").get(UserLoggedIn,async (req,res)=>{
 
 /// ??  cart route
 router.route("/category").get(async(_,res)=>{
-
-
  const data = await fetch('https://dummyjson.com/products/categories')
  const products = await fetch("https://dummyjson.com/products?limit=9")
  const allpro = await products.json()
@@ -86,16 +79,6 @@ router.route("/category").get(async(_,res)=>{
 
     return res.render("ExtraComponent/Category",{layout:false, allcategory ,allpro,length})
 })
-
-
-
-
-
-
-
-
-
-
 
 
 

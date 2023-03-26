@@ -1,4 +1,7 @@
 
+<%- include("../commoncode/Banner"); -%>
+
+
 <div
   class="w-full px-4 mx-auto py-4 md:py-6 dark:text-gray-300 bg-white">
     <div class="md:flex hidden items-center uppercase text-gray-500">
@@ -117,14 +120,14 @@
 
 <!-- Product List -->
 <section class="py-10 bg-gray-100">
-  <div class="mx-auto grid max-w-6xl  grid-cols-1 gap-6 p-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+  <div class="mx-auto grid max-w-6xl  grid-cols-2 gap-6 p-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
     <% pizza.forEach(function(product) { %>
       <article class="rounded-xl bg-white p-3 shadow-lg hover:shadow-xl hover:transform hover:scale-105 duration-300">
       
-          <div class="relative flex items-end overflow-hidden rounded-xl h-52">
+          <div class="relative flex items-end overflow-hidden rounded-xl h-52 sm:h-40">
 
             <a href="/overview/<%=product.id %>">
-                <img src="<%= product.thumbnail %>" alt="<%= product.title%> Photo" class="w-full object-cover object-center" />
+                <img src="<%= product.thumbnail %>" alt="<%= product.title%> Photo" class="w-auto mfp-img-mobile img-fluid object-center" />
               </a>
             <div class="flex items-center space-x-1.5 rounded-lg bg-green-500 px-2 py-1.5 text-white duration-100 hover:bg-blue-600 absolute bottom-0 w-17">
               <button class="text-sm">Add to Wishlist</button>

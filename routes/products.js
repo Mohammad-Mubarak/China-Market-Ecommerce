@@ -7,7 +7,7 @@ const app = express()
 const router = express.Router()
 
 
-const Cart = require("../models/Cart")
+const Cart = require("../models/Cart") 
 
 // controllers
 const {testing,
@@ -16,29 +16,20 @@ const {testing,
 
 } = require("../controller/ProductController")
 
-// middleware importing
+// middleware importing //?
 const {UserLoggedIn} = require('../middlewares/UserLoggedIn')
 const {isAdmin} = require('../middlewares/isAdmin')
 
 
-
-
-// Adding product route
+// Adding product route  //?
 router.route("/add/product").post(UserLoggedIn,AddProduct)
-
 
 // // Adding product route
 // router.route("/addcartproduct").post(UserLoggedIn,AddTOcart)
 
-
-
-
-
-// limit=10&skip=10
-
+// limit=10&skip=10  //?
 router.route("/:limit/:skip").get((_,res)=>{
-
-    const limit = res.params.limit
+   const limit = res.params.limit
     const skip = res.params.skip
 
     res.render("Product/Check",{layout:false})

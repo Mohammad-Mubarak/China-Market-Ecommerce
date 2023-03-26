@@ -25,6 +25,14 @@ router.route("/user").get((_,res)=>{
 })
 
 
+
+router.route("/card").get((_,res)=>{
+    res.render("c")
+  
+})
+
+
+
 module.exports = router
 
 

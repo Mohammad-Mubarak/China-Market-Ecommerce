@@ -317,7 +317,7 @@ exports.updateUserDetails = async (req, res) => {
 			runValidators:true
 		})
 
-		
+
 		// return res.status(200).json({ user });
 	
 		res.render("Home/UserDetails",{user})
@@ -441,15 +441,6 @@ exports.adminDeleteUser = async (req, res) => {
 		});
 	}
 };
-
-
-
-
-
-
-
-
-
 
 
 exports.ManagerOnly = async (req, res) => {
