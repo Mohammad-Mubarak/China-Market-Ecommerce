@@ -218,10 +218,17 @@ exports.getLoggedInDetails = async (req, res) => {
 		
 		const user = await User.findById(req.user.id);
 
+		console.log("🧜‍♂️🦴 ~> file: userController.js:221 ~> exports.getLoggedInDetails= ~> user:  :-> >", user)
 
-		return res.status(200).json({ user });
+
+		// return res.status(200).json({ user });
+
+		res.render("Home/UserDetails",{user})
+
+
+
 	} catch (error) {
-		return res.status(500).json({ message: "Internal Server Error" });
+		return res.status(500).json({ message: "something wrong go to home page" });
 	}
 };
 
@@ -255,12 +262,17 @@ exports.changePassword = async (req, res) => {
 
 exports.updateUserDetails = async (req, res) => {
 	try {
+		
+		
 
 		// getting data from body
 		var newdata ={
          email:req.body.email,
 		 name:req.body.name
 		}
+
+		
+
 
 
          // checking file is available or not
@@ -290,22 +302,26 @@ exports.updateUserDetails = async (req, res) => {
 		}
 
 		// updating data
-		const updatedData = await User.findByIdAndUpdate(req.user.id,newdata,{
+		const user= await User.findByIdAndUpdate(req.user.id,newdata,{
 			new:true,
 			runValidators:true
 		})
 
+		
+		// return res.status(200).json({ user });
+		
 
-		/// sending response
-		res.status(200).json({
-			message:"updated successfully",
-			userdata:updatedData
-		})
+		res.render("Home/UserDetails",{user})
+
+
 
 
 	} catch (error) {
 		
 	}
+
+
+
 };
 
 
