@@ -27,6 +27,7 @@
     "morgan": "^1.10.0",
     "nodemailer": "^6.9.1",
     "razorpay": "^2.8.6",
+    "toastify-js": "^1.12.0",
     "undici": "^5.21.0",
     "validator": "^13.9.0"
   },

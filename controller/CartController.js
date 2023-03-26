@@ -1,14 +1,15 @@
 const Cart = require("../models/Cart")
+const Toastify = require("toastify-js")
 
 
 
 exports.AddTOcart = async (req, res) => {
 	try {
         
-           req.body.userId = req.user.id
-       
+           req.body.userId = req.user.id 
           const newcart = new Cart(req.body)
-            await  newcart.save()
+           const data=  await  newcart.save()
+
             res.redirect("/")
 
 	} catch (error) {
@@ -23,15 +24,25 @@ exports.UserCart = async (req, res) => {
 	try {
            const CartId = req.user.id
 
+           console.log("🧜‍♂️🦴 ~> file: CartController.js:42 ~> exports.UserCart= ~> CartId:  :-> >", CartId)
+
+
+           
            const cart = await Cart.find({userId:CartId})
-       
+
+          
+    
            var TotalProduct = cart.length
            var total =0;
            cart.map(product=>{
-          
                 total+=product.price
            })
+
+		 
            res.render("Product/Cart",{layout:false, total,cart,TotalProduct})
+
+        //    res.render("Product/Carts",{layout:false, total,cart,TotalProduct})
+
 
 	} catch (error) {
 		res.json({

@@ -27,7 +27,10 @@ const {isAdmin} = require('../middlewares/isAdmin')
 router.route("/add/cart").post(UserLoggedIn,AddTOcart)
 
 
-router.route("/user/cart").get(UserLoggedIn,UserCart)
+// router.route("/user/cart").get(UserLoggedIn,UserCart)
+
+router.route("/cart").get(UserLoggedIn,UserCart)
+
 
 
 router.route("/delete/product/cart/").delete(UserLoggedIn,DeleteProduct)

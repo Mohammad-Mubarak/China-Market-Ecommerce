@@ -98,7 +98,9 @@ toggleButton.addEventListener('click', function() {
      Command: toastr["success"]("Hey Thee👋 Added to Cart")
   })
 
-
+  $('.add-to-cart').click(function() {
+    location.reload();
+})
 
 
 
@@ -106,3 +108,4 @@ toggleButton.addEventListener('click', function() {
 
 
 </script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>

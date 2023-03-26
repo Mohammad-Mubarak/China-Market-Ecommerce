@@ -66,5 +66,22 @@ exports.AddProduct = async (req, res) => {
 
 
 
+exports.Pagination = async (req, res) => {
+	try {
 
-// adding product 
+      
+
+
+
+		res.status(200).json({
+			sucess: true,
+		
+		});
+	} catch (error) {
+		res.json({
+			sucess: false,
+			message: "error sending request",
+		});
+	}
+};
+

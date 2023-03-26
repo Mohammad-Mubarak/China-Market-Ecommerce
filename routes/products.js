@@ -36,6 +36,21 @@ router.route("/checkout").get((_,res)=>{
 })
 
 
+// limit=10&skip=10
+
+
+router.route("/:limit/:skip").get((_,res)=>{
+
+    const limit = res.params.limit
+    const skip = res.params.skip
+
+    
+
+
+    res.render("Product/Check",{layout:false})
+})
+
+
 
 
 
