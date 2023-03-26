@@ -47,14 +47,11 @@ router.route("/checkout").get(UserLoggedIn,async (req,res)=>{
 
     const cart = await Cart.find({userId:CartId})
 
-    
-
     var TotalProduct = cart.length
     var total =0;
     cart.map(product=>{
          total+=product.price
     })
-
 
     res.render("Product/Check",{layout:false,cart,total,TotalProduct})
 })
