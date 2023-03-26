@@ -270,7 +270,14 @@ exports.changePassword = async (req, res) => {
 
 exports.updateUserDetails = async (req, res) => {
 	try {
+
+		const q= req.body
+
+		console.log("🧜‍♂️🦴 ~> file: userController.js:276 ~> exports.updateUserDetails= ~> q:  :-> >", q)
+
 		// getting data from body
+	
+	
 		var newdata ={
          email:req.body.email,
 		 name:req.body.name

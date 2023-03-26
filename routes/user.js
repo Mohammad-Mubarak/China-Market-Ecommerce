@@ -57,7 +57,6 @@ router.route("/password/reset/:token").post(Resetpassword)
 router.route("/userdashboard").get(UserLoggedIn,getLoggedInDetails)
 
 
-
 // user update name email or profile pic (//?)
 router.route("/update/user").post(UserLoggedIn,updateUserDetails).get(UserLoggedIn,(_, res) => {
 	res.render("Auth/User");
