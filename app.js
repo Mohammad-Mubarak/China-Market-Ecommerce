@@ -48,9 +48,9 @@ app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
 
 // setting static data
-const staticpath =path.join(__dirname, "Public")
+// const staticpath =path.join(__dirname, "Public")
 
-app.use(express.static(staticpath));
+app.use(express.static("public"));
 
 
 
