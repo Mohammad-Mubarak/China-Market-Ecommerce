@@ -1,6 +1,4 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-
-
 <script>
 
 // Add to card functionality
@@ -67,11 +65,19 @@ toggleButton.addEventListener('click', function() {
 
 
 
+  // if (req.headers.authorization && req.headers.authorization.startsWith('Bearer ')){
 
+
+  // }else if(req.cookies.token){
+
+  // }else{
+
+
+  // }
 
 
   $(".add-to-cart").on("click", function(){
-
+    console.log("Add to cart")
     toastr.options = {
       "closeButton": false,
       "debug": false,
@@ -89,8 +95,7 @@ toggleButton.addEventListener('click', function() {
       "showMethod": "fadeIn",
       "hideMethod": "fadeOut"
     }
-         Command: toastr["success"]("Hey Thee👋 Added to Cart")
-
+     Command: toastr["success"]("Hey Thee👋 Added to Cart")
   })
 
 

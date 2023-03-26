@@ -1,14 +1,9 @@
 <%- include("../Scripts/Style"); -%>
-
 <div class="position-relative bg-secondary h-full w-full">
-
   <div class="w-screen position-absolute m-auto my-6 max-w-sm border border-gray-600 bg-gray-100 p-4 pt-4 sm:p-6 lg:p-8"
     aria-modal="true" role="dialog" tabindex="-1">
-  
     <div class="mt-6 space-y-6">
       <ul class="space-y-4">
-
-
 
         <% cart.forEach(function(product) { %>
 
@@ -36,7 +31,7 @@
             </dl>
           </div>
          
-            <button data-current="<%=JSON.stringify(product) %>"  class="relative delete-cart ml-auto block text-gray-600 transition hover:scale-110">
+            <button data-current="<%=JSON.stringify(product) %>" id="delete"  class="relative delete-cart ml-auto block text-gray-600 transition hover:scale-110">
               <span class="sr-only">Delete product</span>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                 class="h-5 w-5">
@@ -71,9 +66,10 @@
 </div>
 
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script src="build/toastr.min.js"></script>
 
 <script>
-
 
 
 let deleteProduct = document.querySelectorAll(".delete-cart")
@@ -89,11 +85,16 @@ deleteProduct.forEach((btn) => {
   })
 })
 
+$("#delete").on("load", function(){
+    toastr.warning("Product deleted")
+   
+})
+
+
+
 
 // Deleteing the product from cart 
 function addcartproduct(data) {
-  console.log(data)
-  
   fetch('/delete/product/cart/', {
     method: 'DELETE',
     headers: { 'Content-Type': 'application/json' },
@@ -106,29 +107,6 @@ function addcartproduct(data) {
 
 }
 
-
-
-
-$(".delete-cart").on("click", function(){
-    toastr.options = {
-    "closeButton": false,
-    "debug": false,
-    "newestOnTop": false,
-    "progressBar": false,
-    "positionClass": "toast-top-right",
-    "preventDuplicates": false,
-    "onclick": null,
-    "showDuration": "300",
-    "hideDuration": "1000",
-    "timeOut": "3000",
-    "extendedTimeOut": "1000",
-    "showEasing": "swing",
-    "hideEasing": "linear",
-    "showMethod": "fadeIn",
-    "hideMethod": "fadeOut"
-}
-     Command: toastr["error"]("Hey There👋 Product deleted")
-})
 
 
 

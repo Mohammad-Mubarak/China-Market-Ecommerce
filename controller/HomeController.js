@@ -1,5 +1,7 @@
 const { fetch } = require('undici')
 
+// const Product = require("../models/AllProduct")
+
 exports.Home = async (req, res) => {
 	const data = await fetch("https://dummyjson.com/products");
 	const data2 = await data.json();
@@ -14,6 +16,17 @@ exports.OverviewProduct = async (req, res) => {
 
 	res.render("Product/overview", { product });
 };
+
+
+
+// exports.OverviewProduct = async (req, res) => {
+// 	const productId = req.params.id;
+// 	const SeeProduct = await Product.findOne({ id: productId})
+// 	// const product = await response.json();
+//    console.log(SeeProduct)
+// 	// res.render("Product/overview", { product });
+// };
+
 
 
 
