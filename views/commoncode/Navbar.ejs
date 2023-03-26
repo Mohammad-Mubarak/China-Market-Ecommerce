@@ -16,7 +16,7 @@
 
 <% } else { %>
 
-<a href="/login">
+<!-- <a href="/login">
   <button type="button"
     class="rounde mr-3 hidden border border-blue-700 py-1.5 px-6 text-center text-sm font-medium text-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 md:inline-block rounded-lg">Login</button>
 
@@ -24,7 +24,7 @@
 
 <a href="/register">
   <button type="button"
-    class="rounde mr-3 hidden bg-blue-700 py-1.5 px-6 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 md:mr-0 md:inline-block rounded-lg">Register</button>
+    class="rounde mr-3 hidden bg-blue-700 py-1.5 px-6 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 md:mr-0 md:inline-block rounded-lg">Register</button> -->
 
 </a>
 
@@ -66,8 +66,31 @@
             
           <% } else { %>
             <li>
-              <a href="/category" class="block rounded py-2 pl-3 pr-4 text-gray-700 hover:bg-gray-100 md:p-0 md:hover:bg-transparent md:hover:text-blue-700">Category</a>
+              <a href="/category"
+                class="block rounded py-2 pl-3 pr-4 text-gray-700 hover:bg-gray-100 md:p-0 md:hover:bg-transparent md:hover:text-blue-700">Category</a>
             </li>
+
+
+            <li>
+              <a href="/login">
+                <button type="button"
+                  class="rounde mr-3  border border-blue-700 py-1 px-4 text-center text-sm font-medium text-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 md:inline-block rounded-lg">Login</button>
+
+              </a>
+
+            </li>
+
+            <li>
+
+              <a href="/register">
+                <button type="button"
+                  class="rounde mr-3  bg-blue-400 py-1 px-4 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 md:mr-0 md:inline-block rounded-lg">Register</button>
+
+              </a>
+
+            </li>
+
+            
             
           <% } %>
           
@@ -96,6 +119,12 @@
       </div>
     </a>
 
+  
+    <a href="/logout">
+      <button type="button"
+        class="rounde mr-3 bg-blue-700 py-1.5 px-6 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 md:mr-0 md:inline-block rounded-lg">Logout</button>
+    </a>
+    
   
 
 <% } else if (req.cookies.token) { %>
