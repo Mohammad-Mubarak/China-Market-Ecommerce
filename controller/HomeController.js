@@ -6,22 +6,21 @@ const Cart = require("../models/Cart")
 
 exports.Home = async (req, res) => {
 
-	var TotalProduc0;
-	var UserData;
-	if(req.user !== undefined){
-		UserData=req.user
-		const CartId = req.user.id
-		const cart = await Cart.find({userId:CartId})
-	    TotalProduct = cart.length 
-
-		
-	}
+	// var val=0;
+	// var UserData;
+	// if(req.user !== undefined){
+	// 	UserData=req.user
+	// 	const CartId = req.user.id
+	// 	const cart = await Cart.find({userId:CartId})
+	// 	req.user.TotalProduct = cart.length 
 	
-
+	// }
+	// req.user.TotalProduct = val
 	const data = await fetch("https://dummyjson.com/products");
 	const data2 = await data.json();
 	const pizza = data2.products;
-	res.render("Home/Home", { pizza ,TotalProduct,});
+	
+	res.render("Home/Home", { pizza });
 };
 
 

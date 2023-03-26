@@ -23,15 +23,7 @@ exports.AddTOcart = async (req, res) => {
 exports.UserCart = async (req, res) => {
 	try {
            const CartId = req.user.id
-
-           console.log("🧜‍♂️🦴 ~> file: CartController.js:42 ~> exports.UserCart= ~> CartId:  :-> >", CartId)
-
-
-           
            const cart = await Cart.find({userId:CartId})
-
-          
-    
            var TotalProduct = cart.length
            var total =0;
            cart.map(product=>{

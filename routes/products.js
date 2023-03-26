@@ -6,6 +6,9 @@ const express = require("express")
 const app = express()
 const router = express.Router()
 
+
+const Cart = require("../models/Cart")
+
 // controllers
 const {testing,
     AddProduct,
@@ -30,22 +33,13 @@ router.route("/add/product").post(UserLoggedIn,AddProduct)
 
 
 
-// Adding product route
-router.route("/checkout").get((_,res)=>{
-    res.render("Product/Check",{layout:false})
-})
-
 
 // limit=10&skip=10
-
 
 router.route("/:limit/:skip").get((_,res)=>{
 
     const limit = res.params.limit
     const skip = res.params.skip
-
-    
-
 
     res.render("Product/Check",{layout:false})
 })

@@ -5,25 +5,22 @@ const User = require("../models/user");
 
 exports.HomeCheck = async (req, res, next) => {
 	const token =req.cookies.token
+
 		if (!token && req.header("Authorization")) {
 			token = req.header("Authorization").replace("Bearer ", "");
 		  }
 		  if (!token) {
-			 next()
+		  return  res.end()
 		  }
 
 	try {
 		const decode = jwt.verify(token, SECRET_KEY);
 		req.user = await User.findById(decode.id);
+		console.log("🧜‍♂️🦴 ~> file: HomeUser.js:20 ~> exports.HomeCheck= ~> user:  :-> >", req.user)
 		next()
 
 	} catch (error) {
-		if (error instanceof jwt.TokenExpiredError) {
-			return res.status(401).json({
-				message: "Session Expired",
-				error: error.message,
-			});
-		}
+			return res.redirect("/")
 	}
 };
 

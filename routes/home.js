@@ -5,7 +5,7 @@ const {Home,OverviewProduct} = require("../controller/HomeController.js")
 const {HomeCheck} = require("../middlewares/HomeUser")
 
 // Home route
-router.route("/").get(HomeCheck,Home)
+router.route("/").get(Home)
 
 // Product overview 
 router.route("/overview/:id").get(OverviewProduct);
@@ -24,7 +24,6 @@ router.route("/user").get((_,res)=>{
   
 })
 
-console.log("hey")
 
 module.exports = router
 

@@ -49,10 +49,12 @@
           class="block rounded border border-gray-600 px-5 py-3 text-sm text-gray-600 transition hover:ring-1 hover:ring-gray-400">
           View my cart (<%= TotalProduct %>)
         </a>
+        <a href="/checkout"
         <button
           class="block w-full rounded-md bg-gray-600 px-3.5 py-1.5 text-base font-semibold leading-7 text-white hover:bg-gray-500">
           Checkout
         </button>
+      </a>
         <a href="/"
           class="inline-block text-sm text-gray-500 underline underline-offset-4 transition hover:text-gray-600">
           Continue shopping
@@ -115,12 +117,6 @@ $(".delete-cart").on("click", function(){
    }
     Command: toastr["success"]("Hey Thee👋 Deleted")
  })
-
-
-
-
-
-
 
 
 // Deleteing the product from cart 
