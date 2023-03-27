@@ -69,17 +69,6 @@ toggleButton.addEventListener('click', function() {
 
 
 
-  // if (req.headers.authorization && req.headers.authorization.startsWith('Bearer ')){
-
-
-  // }else if(req.cookies.token){
-
-  // }else{
-
-
-  // }
-
-
   $(".add-to-cart").on("click", function(){
     console.log("Add to cart")
     toastr.options = {
@@ -109,22 +98,13 @@ toggleButton.addEventListener('click', function() {
 
 
 
-
-
-
   // Add to card functionality
   let add = document.querySelectorAll(".add-to")
 
 add.forEach(btn => {
   btn.addEventListener("click", () => {
     let updateproduct = btn.dataset.current
-
-    
-
     let data = JSON.parse(updateproduct)
-
-    console.log("🧜‍♂️🦴 ~> file: Script.ejs:123 ~> btn.addEventListener ~> data:  :-> >", data)
-
     addcartproduct(data) 
   })
 })

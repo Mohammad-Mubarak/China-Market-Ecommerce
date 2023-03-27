@@ -1,70 +1,69 @@
 <div class="flex justify-center" style="margin-bottom: 30px;">
-    <div class="flex m-auto">
-      <a
-        href="#"
-        class="flex items-center px-4 py-2 mx-1 text-gray-500 border border-gray-400 dark:border-gray-800 rounded-md cursor-not-allowed dark:text-gray-400">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-          aria-hidden="true"
-          class="w-5 h-5">
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"></path>
-        </svg>
-      </a>
-      <a
-        href="#"
-        class="flex items-center px-4 py-2 mx-1 text-gray-500 border border-gray-400 dark:border-gray-800 rounded-md dark:text-gray-400 hover:scale-105">
-        1
-      </a>
-      <a
-        href="#"
-        class="flex items-center px-4 py-2 mx-1 text-gray-500 border border-gray-400 dark:border-gray-800 rounded-md dark:text-gray-400 hover:scale-105">
-        2
-      </a>
-      <a
-        href="#"
-        class="flex items-center px-4 py-2 mx-1 text-gray-500 border border-gray-400 dark:border-gray-800 rounded-md dark:text-gray-400 hover:scale-105">
-        3
-      </a>
-      <a
-        href="#"
-        class="flex items-center px-4 py-2 mx-1 text-gray-500 border border-gray-400 dark:border-gray-800 rounded-md dark:text-gray-400 hover:scale-105">
-        ...
-      </a>
-      <a
-        href="#"
-        class="flex items-center px-4 py-2 mx-1 text-gray-500 border border-gray-400 dark:border-gray-800 rounded-md dark:text-gray-400 hover:scale-105">
-        9
-      </a>
-      <a
-        href="#"
-        class="flex items-center px-4 py-2 mx-1 text-gray-500 border border-gray-400 dark:border-gray-800 rounded-md dark:text-gray-400 hover:scale-105">
-        10
-      </a>
-      <a
-        href="#"
-        class="flex items-center px-4 py-2 mx-1 text-gray-500 border border-gray-400 dark:border-gray-800 rounded-md dark:text-gray-400 hover:scale-105">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-          aria-hidden="true"
-          class="w-5 h-5">
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path>
-        </svg>
-      </a>
-    </div>
+  <div class="flex m-auto">
+
+    <a data-page="1"
+      class="flex items-center px-4 py-2 mx-1 text-gray-500 border border-gray-400 dark:border-gray-800 rounded-md dark:text-gray-400 hover:scale-105">
+      1
+    </a>
+    <a href="/" data-page="2"
+      class="flex items-center px-4 py-2 mx-1 text-gray-500 border border-gray-400 dark:border-gray-800 rounded-md dark:text-gray-400 hover:scale-105">
+      2
+    </a>
+    <a data-page="3"
+      class="flex items-center px-4 py-2 mx-1 text-gray-500 border border-gray-400 dark:border-gray-800 rounded-md dark:text-gray-400 hover:scale-105">
+      3
+    </a>
+    <a href="/" data-page="4"
+      class="flex items-center px-4 py-2 mx-1 text-gray-500 border border-gray-400 dark:border-gray-800 rounded-md dark:text-gray-400 hover:scale-105">
+      4
+    </a>
+    <a href="/" data-page="5"
+      class="flex items-center px-4 py-2 mx-1 text-gray-500 border border-gray-400 dark:border-gray-800 rounded-md dark:text-gray-400 hover:scale-105">
+      5
+    </a>
+    <a href="/" data-page="6"
+      class="flex items-center px-4 py-2 mx-1 text-gray-500 border border-gray-400 dark:border-gray-800 rounded-md dark:text-gray-400 hover:scale-105">
+      6
+    </a>
+    <a href="/" data-page="7"
+      class="flex items-center px-4 py-2 mx-1 text-gray-500 border border-gray-400 dark:border-gray-800 rounded-md dark:text-gray-400 hover:scale-105">
+      7
+    </a>
+    <a href="/" data-page="8"
+      class="flex items-center px-4 py-2 mx-1 text-gray-500 border border-gray-400 dark:border-gray-800 rounded-md dark:text-gray-400 hover:scale-105">
+      8
+    </a>
+    <a data-page="9" href="/"
+      class="flex items-center px-4 py-2 mx-1 text-gray-500 border border-gray-400 dark:border-gray-800 rounded-md dark:text-gray-400 hover:scale-105">
+      9
+    </a>
+    <a data-page="10"
+      class="flex items-center px-4 py-2 mx-1 text-gray-500 border border-gray-400 dark:border-gray-800 rounded-md dark:text-gray-400 hover:scale-105">
+      10
+    </a>
+
   </div>
-  
-  
+</div>
+
+<Script>
+  // select all pagination links with data-page attribute
+  $('a[data-page]').click(function (e) {
+    e.preventDefault(); // prevent the link from navigating to a new page
+    const page = $(this).data('page'); // retrieve the data-page attribute value
+    // make your AJAX call here using the page number
+    $.ajax({
+      url: '/',
+      type: 'GET',
+      data: {
+        page: page
+      },
+      success: function (response) {
+        // replace the HTML content of the container with the new data
+        $('body').html(response);
+      },
+      error: function (xhr) {
+        // handle the error here
+      }
+    });
+  });
+</Script>
