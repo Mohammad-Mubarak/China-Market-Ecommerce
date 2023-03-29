@@ -269,6 +269,15 @@ exports.updateUserDetails = async (req, res) => {
 
 		const q= req.body
 
+
+		if( ! req.body.email || ! req.body.name){
+			return res.json({
+				success: false,
+				message:"please enter data"
+			})
+		}
+
+
 		var newdata ={
          email:req.body.email,
 		 name:req.body.name

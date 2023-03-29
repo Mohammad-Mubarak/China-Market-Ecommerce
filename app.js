@@ -8,6 +8,8 @@ const ejs = require("ejs");
 const bodyParser = require("body-parser");
 var expressLayouts = require('express-ejs-layouts');
 
+
+
 const Swal = require('sweetalert2')
 
 
@@ -20,9 +22,6 @@ const {UserLoggedIn} = require("./middlewares/UserLoggedIn")
 // debugging eassy 
 var PrettyError = require('pretty-error');
 var pe = new PrettyError().start();
-
-
-
 
 
 

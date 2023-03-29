@@ -59,9 +59,7 @@ app.get("/md",(req, res) => {
     // ...Handle the error or redirect the user to a login page...
     console.log("user not logged in")
     }
-  
-  
-    
+
     
   })
   
